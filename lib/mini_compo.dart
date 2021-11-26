@@ -1,0 +1,2 @@
+library mini_compo;
+
