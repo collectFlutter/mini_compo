@@ -20,12 +20,12 @@ class BorderCompo extends StatelessWidget {
     this.width,
     this.height,
     required this.label,
-    this.fontSize = 10,
+    this.fontSize = 13,
     this.textColor = Colors.white,
     this.borderRadius = const BorderRadius.all(Radius.circular(5.0)),
-    this.margin = const EdgeInsets.only(),
-    this.fontWeight = FontWeight.bold,
-    this.padding = const EdgeInsets.only(top: 2, bottom: 2, left: 5, right: 5),
+    this.margin = EdgeInsets.zero,
+    this.fontWeight = FontWeight.normal,
+    this.padding = const EdgeInsets.all(5.0),
     this.shapeWidth = 0.5,
   }) : super(key: key);
 
@@ -36,31 +36,30 @@ class BorderCompo extends StatelessWidget {
             ? textColor.withAlpha(80)
             : Colors.green);
     return GestureDetector(
-      child: Material(
-        color: Colors.transparent,
-        shape: RoundedRectangleBorder(
-          side: BorderSide(color: textColor, width: shapeWidth),
-          borderRadius: borderRadius,
-        ),
-        child: Container(
-          width: width,
-          height: height,
-          margin: margin,
-          padding: padding,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-              color: _backColor,
-              borderRadius: borderRadius,
-              shape: BoxShape.rectangle),
-          child: Text(
-            label,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-                color: textColor,
-                fontSize: fontSize,
-                fontWeight: fontWeight,
-                height: 1),
+      child: Padding(
+        padding: margin,
+        child: Material(
+          color: _backColor,
+          shape: RoundedRectangleBorder(
+            side: BorderSide(color: textColor, width: shapeWidth),
+            borderRadius: borderRadius,
+          ),
+          child: Container(
+            width: width,
+            height: height,
+            padding: padding,
+            alignment: (height != null) ? Alignment.center : null,
+            child: Text(
+              label,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: textColor,
+                  fontSize: fontSize,
+                  fontWeight: fontWeight,
+                  height: 1),
+            ),
           ),
         ),
       ),
