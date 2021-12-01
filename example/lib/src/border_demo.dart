@@ -15,7 +15,10 @@ class _BorderCompoDemoState extends State<BorderCompoDemo> {
       children: const [
         BorderCompo(label: '默认'),
         BorderCompo(
-            label: '开始', margin: EdgeInsets.all(10), textColor: Colors.blue),
+          label: '开始',
+          margin: EdgeInsets.all(10),
+          textColor: Colors.blue,
+        ),
         BorderCompo(
           label: '补卡',
           margin: EdgeInsets.all(10),
@@ -23,11 +26,12 @@ class _BorderCompoDemoState extends State<BorderCompoDemo> {
           width: 200,
         ),
         BorderCompo(
-            label: '完成',
-            margin: EdgeInsets.all(10),
-            textColor: Colors.green,
-            width: 80,
-            height: 80),
+          label: '完成',
+          margin: EdgeInsets.all(10),
+          textColor: Colors.green,
+          width: 80,
+          height: 80,
+        ),
         ListTile(
           leading: Icon(Icons.add_to_drive_rounded),
           title: Text("标题"),

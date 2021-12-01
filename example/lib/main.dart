@@ -1,4 +1,6 @@
 import 'package:example/src/badge_demo.dart';
+import 'package:example/src/search_demo.dart';
+import 'package:example/src/text_field_demo.dart';
 import 'package:flutter/material.dart';
 import 'page.dart';
 import 'src/border_demo.dart';
@@ -45,6 +47,8 @@ class _MyHomePageState extends State<MyHomePage> {
     pages.addAll({
       'BadgeCompo': const BadgeCompoDemo(),
       'BorderCompo': const BorderCompoDemo(),
+      'TextFieldCompo': TextFieldCompoDemo(),
+      'SearchCompo': SearchCompoDemo(),
     });
     if (mounted) setState(() {});
   }
