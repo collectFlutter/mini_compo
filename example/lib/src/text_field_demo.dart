@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mini_compo/mini_compo.dart';
 
+import 'base/demo_page.dart';
+
 class TextFieldCompoDemo extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
@@ -8,7 +10,7 @@ class TextFieldCompoDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
+    return DemoPage(
       children: [
         TextFieldCompo(
           controller: _controller,
@@ -30,6 +32,25 @@ class TextFieldCompoDemo extends StatelessWidget {
           },
         ),
         TextFieldCompo(controller: _controller, isInputPwd: true),
+        TextFieldCompo(
+          controller: _controller,
+          icon: const Icon(Icons.lock),
+          hintText: '请输入密码……',
+        ),
+        TextFieldCompo(
+          controller: _controller,
+          label:const Text("label"),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Theme.of(context).primaryColor,
+            ),
+          ),
+          enabledBorder: const OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colors.grey,
+            ),
+          ),
+        ),
       ],
     );
   }

@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
@@ -10,16 +9,17 @@ class TextFieldCompo extends StatefulWidget {
   const TextFieldCompo({
     Key? key,
     required this.controller,
-    this.maxLength = 20,
+    this.maxLength,
     this.autoFocus = false,
     this.keyboardType = TextInputType.text,
     this.hintText = '',
+    this.label,
     this.focusNode,
     this.isInputPwd = false,
     this.getVCode,
     this.keyName,
     this.icon,
-    this.contentPadding = const EdgeInsets.symmetric(vertical: 16.0),
+    this.contentPadding = const EdgeInsets.only(left: 8.0,right: 8.0),
     this.pwdOff = Icons.visibility_off,
     this.pwdOn = Icons.visibility,
     this.showLine = false,
@@ -34,12 +34,13 @@ class TextFieldCompo extends StatefulWidget {
   final bool autoFocus;
   final TextInputType keyboardType;
   final String hintText;
+  final Widget? label;
   final TextStyle? hintTextStyle;
   final FocusNode? focusNode;
   final bool isInputPwd;
   final Future<bool> Function()? getVCode;
   final Widget? icon;
-  final EdgeInsetsGeometry contentPadding;
+  final EdgeInsets contentPadding;
   final IconData pwdOff;
   final IconData pwdOn;
   final bool showLine;
@@ -142,12 +143,13 @@ class _MyTextFieldState extends State<TextFieldCompo> {
                   : null,
           decoration: InputDecoration(
             contentPadding: widget.contentPadding,
+            label: widget.label,
             hintText: widget.hintText,
             hintStyle: widget.hintTextStyle,
             counterText: '',
             icon: Padding(
               padding: const EdgeInsets.only(left: 5),
-              child: widget.icon ?? Container(width: 0),
+              child: widget.icon,
             ),
             focusedBorder: widget.focusedBorder ??
                 UnderlineInputBorder(
@@ -156,7 +158,7 @@ class _MyTextFieldState extends State<TextFieldCompo> {
                     width: 0.8,
                   ),
                 ),
-            enabledBorder: widget.focusedBorder ??
+            enabledBorder: widget.enabledBorder ??
                 UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: Theme.of(context).dividerColor,
@@ -229,6 +231,7 @@ class _MyTextFieldState extends State<TextFieldCompo> {
                 ),
               ),
             },
+            const SizedBox(width: 8)
           ],
         )
       ],

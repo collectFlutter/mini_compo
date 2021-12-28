@@ -1,6 +1,6 @@
 name: mini_compo
 description: Assemble common UI components to facilitate the rapid use of some components in the project.
-version: 0.2.0
+version: 0.1.0
 homepage: https://github.com/collectFlutter/mini_compo
 
 environment:
